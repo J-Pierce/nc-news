@@ -6,7 +6,16 @@ const apiClient = axios.create({
 
 export function getArticles() {
   return apiClient.get(`/articles`).then(({ data }) => {
-    console.log(data);
     return data.articles;
+  });
+}
+export function getArticleById(id) {
+  return apiClient.get(`/articles/${id}`).then(({ data }) => {
+    return data.article;
+  });
+}
+export function getCommentsByArticleId(id) {
+  return apiClient.get(`/articles/${id}/comments`).then(({ data }) => {
+    return data.comments;
   });
 }
