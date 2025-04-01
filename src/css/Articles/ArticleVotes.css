@@ -5,8 +5,11 @@
 }
 
 .Votes button {
+  background-color: rgb(230, 227, 227);
 }
 
 .Votes p {
   padding: 10px;
 }
+
+
