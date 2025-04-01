@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getArticles } from "../endpoints";
+import { getArticles } from "../../endpoints";
 import Loading from "../Loading";
 
 export function ArticlesDisplay() {

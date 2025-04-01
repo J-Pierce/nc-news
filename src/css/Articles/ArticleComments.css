@@ -1,4 +1,6 @@
 .ArticlePage .comments {
+  margin-left: 20px;
+  margin-right: 20px;
   background-color: #d7d7d7;
   border: solid rgb(0, 0, 0);
 }
@@ -18,25 +20,9 @@
   padding-right: 10px;
 }
 
-.ArticlePage .comments .comment ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-.ArticlePage .comments .comment li {
-  float: left;
-}
-
-.ArticlePage .comments .comment li p {
-  display: block;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  margin: 0;
-}
-
-.ArticlePage .comments .comment #body {
-  text-align: left;
+.ArticlePage .comments .comment .stats {
+  display: flex;
+  justify-content: space-between;
+  align-content: baseline;
+  margin: 10px;
 }

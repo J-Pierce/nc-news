@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp } from "@fortawesome/free-regular-svg-icons";
 import { faThumbsDown } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
-import { patchVotesByArticleId } from "../endpoints";
+import { patchVotesByArticleId } from "../../endpoints";
 
 export function ArticleVotes({ id, votes }) {
   const [vote, setVote] = useState(votes);
@@ -10,6 +10,7 @@ export function ArticleVotes({ id, votes }) {
   const [hasDownVoted, setHasDownVoted] = useState(false);
 
   function upClicked(event) {
+    event.preventDefault();
     console.log(hasUpVoted);
     if (("Up: ", hasUpVoted)) {
       setHasUpVoted(false);
@@ -24,7 +25,6 @@ export function ArticleVotes({ id, votes }) {
       });
     } else {
       setHasUpVoted(true);
-
       event.target.style.color = "#ff0000";
       setVote((vote) => {
         return vote + 1;
@@ -38,6 +38,7 @@ export function ArticleVotes({ id, votes }) {
   }
 
   function downClicked(event) {
+    event.preventDefault();
     console.log("Down: ", hasDownVoted);
     if (hasDownVoted) {
       setHasDownVoted(false);

@@ -1,5 +1,6 @@
 import "./css/App.css";
 import { Routes, Route } from "react-router-dom";
+import { UserProvider } from "./context/User";
 
 import { NavBar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
@@ -13,22 +14,24 @@ import { NoResult } from "./components/NoResult";
 function App() {
   return (
     <>
-      <header>
-        <NavBar />
-      </header>
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/articles" element={<ArticlesPage />} />
-          <Route path="/articles/:article_id" element={<ArticlePage />} />;
-          <Route path="/topics" element={<Topics />} />
-          <Route path="/account" element={<Account />} />
-          <Route path="/*" element={<NoResult />} />
-        </Routes>
-      </main>
-      <footer>
-        <Footer />
-      </footer>
+      <UserProvider>
+        <header>
+          <NavBar />
+        </header>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/articles" element={<ArticlesPage />} />
+            <Route path="/articles/:article_id" element={<ArticlePage />} />;
+            <Route path="/topics" element={<Topics />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="/*" element={<NoResult />} />
+          </Routes>
+        </main>
+        <footer>
+          <Footer />
+        </footer>
+      </UserProvider>
     </>
   );
 }
