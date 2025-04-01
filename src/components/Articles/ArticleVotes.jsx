@@ -11,57 +11,63 @@ export function ArticleVotes({ id, votes }) {
 
   function upClicked(event) {
     event.preventDefault();
-    console.log(hasUpVoted);
-    if (("Up: ", hasUpVoted)) {
-      setHasUpVoted(false);
-      event.target.style.color = "#000000";
-      setVote((vote) => {
-        return vote - 1;
-      });
-      patchVotesByArticleId(id, -1).catch(() => {
-        setVote((vote) => {
-          return vote + 1;
-        });
-      });
+    if (hasDownVoted) {
+      null;
     } else {
-      setHasUpVoted(true);
-      event.target.style.color = "#ff0000";
-      setVote((vote) => {
-        return vote + 1;
-      });
-      patchVotesByArticleId(id, 1).catch(() => {
+      if (hasUpVoted) {
+        event.target.style.color = "#000000";
+        setHasUpVoted(false);
         setVote((vote) => {
           return vote - 1;
         });
-      });
+        patchVotesByArticleId(id, -1).catch(() => {
+          setVote((vote) => {
+            return vote + 1;
+          });
+        });
+      } else {
+        event.target.style.color = "#ff0000";
+        setHasUpVoted(true);
+        setVote((vote) => {
+          return vote + 1;
+        });
+        patchVotesByArticleId(id, 1).catch(() => {
+          setVote((vote) => {
+            return vote - 1;
+          });
+        });
+      }
     }
   }
 
   function downClicked(event) {
     event.preventDefault();
-    console.log("Down: ", hasDownVoted);
-    if (hasDownVoted) {
-      setHasDownVoted(false);
-      event.target.style.color = "#000000";
-      setVote((vote) => {
-        return vote + 1;
-      });
-      patchVotesByArticleId(id, 1).catch(() => {
-        setVote((vote) => {
-          return vote - 1;
-        });
-      });
+    if (hasUpVoted) {
+      null;
     } else {
-      setHasDownVoted(true);
-      event.target.style.color = "#ff0000";
-      setVote((vote) => {
-        return vote - 1;
-      });
-      patchVotesByArticleId(id, -1).catch(() => {
+      if (hasDownVoted) {
+        event.target.style.color = "#000000";
+        setHasDownVoted(false);
         setVote((vote) => {
           return vote + 1;
         });
-      });
+        patchVotesByArticleId(id, 1).catch(() => {
+          setVote((vote) => {
+            return vote - 1;
+          });
+        });
+      } else {
+        event.target.style.color = "#ff0000";
+        setHasDownVoted(true);
+        setVote((vote) => {
+          return vote - 1;
+        });
+        patchVotesByArticleId(id, -1).catch(() => {
+          setVote((vote) => {
+            return vote + 1;
+          });
+        });
+      }
     }
   }
 

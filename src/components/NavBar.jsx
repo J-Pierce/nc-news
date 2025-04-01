@@ -21,11 +21,6 @@ export function NavBar() {
           </Link>
         </div>
         <div>
-          <Link to="/articles" className="NavItem">
-            Articles
-          </Link>
-        </div>
-        <div>
           <Link to="/topics" className="NavItem">
             Topics
           </Link>
@@ -43,11 +38,6 @@ export function NavBar() {
         <div>
           <Link to="/" className="Logo" id="active">
             <h1>NC-News</h1>
-          </Link>
-        </div>
-        <div>
-          <Link to="/articles" className="NavItem">
-            Articles
           </Link>
         </div>
         <div>

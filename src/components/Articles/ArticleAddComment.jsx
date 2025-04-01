@@ -37,8 +37,7 @@ export function ArticleAddComment({ commentCount }) {
       article_id,
       user.username,
       event.target[0].value
-    ).catch((error) => {
-      console.log(error);
+    ).catch(() => {
     });
   }
 

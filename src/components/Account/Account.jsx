@@ -1,3 +1,8 @@
 export function Account() {
-  return <p>Account</p>;
+  return (
+    <section>
+      <h2>Account</h2>
+      <p></p>
+    </section>
+  );
 }
