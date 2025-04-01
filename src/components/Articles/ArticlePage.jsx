@@ -61,16 +61,11 @@ export function ArticlePage() {
           <p>votes : {article.votes}</p>
         </li>
       </ul>
-
       <section className="content">
         <img src={article.article_img_url} />
         <p>{article.body}</p>
       </section>
-      <section className="comments">
-        <h4>Comments</h4>
-        <p className="CommentCount">{article.comment_count} Comments:</p>
-        <ArticleComments />
-      </section>
+      <ArticleComments />
     </section>
   );
 }
