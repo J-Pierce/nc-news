@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getArticleById } from "../endpoints";
 import Loading from "../Loading";
 import { ArticleComments } from "./ArticleComments";
+import { ArticleVotes } from "./ArticleVotes";
 
 export function ArticlePage() {
   const { article_id } = useParams();
@@ -57,10 +58,8 @@ export function ArticlePage() {
         <li>
           <p>created_at: {article.created_at}</p>
         </li>
-        <li className="votes">
-          <p>votes : {article.votes}</p>
-        </li>
       </ul>
+      <ArticleVotes id={article_id} votes={article.votes} />
       <section className="content">
         <img src={article.article_img_url} />
         <p>{article.body}</p>
