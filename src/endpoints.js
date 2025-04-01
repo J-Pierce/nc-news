@@ -33,3 +33,8 @@ export function postCommentByArticleId(id, username, body) {
       return data.comments;
     });
 }
+export function deleteCommentById(id) {
+  return apiClient.delete(`/comments/${id}`).then(({ data }) => {
+    return data.comments;
+  });
+}

@@ -50,7 +50,7 @@ export function ArticlePage() {
 
   return (
     <section className="ArticlePage">
-      <h3>{article.title}</h3>
+      <h2>{article.title}</h2>
       <ul className="DataList">
         <li>
           <p>Author: {article.author}</p>
