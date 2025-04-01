@@ -1,0 +1,78 @@
+.ArticlePage h3 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  background-color: rgb(211, 2, 2);
+  color: white;
+  border: solid rgb(125, 0, 0);
+  font-size: 24px;
+  margin: auto;
+}
+
+.ArticlePage .DataList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.ArticlePage .DataList li {
+  float: left;
+}
+
+.ArticlePage .DataList li p {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  background-color: #880202;
+  border: solid rgb(125, 0, 0);
+  margin: 0;
+}
+
+.ArticlePage img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.ArticlePage .comments {
+  background-color: #d7d7d7;
+  border: solid rgb(0, 0, 0);
+}
+
+.ArticlePage .comments h4 {
+  text-align: center;
+}
+.ArticlePage .comments .CommentCount {
+  padding-left: 10px;
+}
+
+.ArticlePage .comments .comment {
+  background-color: rgb(185, 185, 185);
+  border: solid grey;
+  margin: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.ArticlePage .comments .comment ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.ArticlePage .comments .comment li {
+  float: left;
+}
+
+.ArticlePage .comments .comment li p {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  margin: 0;
+}

@@ -1,0 +1,7 @@
+@import "./Header.css";
+@import "./Footer.css";
+@import "./Main.css";
+
+@import "./Articles/Articles.css";
+@import "./Articles/ArticleDisplay.css";
+@import "./Articles/ArticlePage.css";

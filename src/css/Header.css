@@ -1,0 +1,46 @@
+header {
+  background-color: #ca0c0c;
+  text-align: center;
+  border-style: solid;
+  border-color: rgb(156, 61, 61);
+  border-radius: 2px;
+  border-width: 5px;
+  color: white;
+}
+
+header h1 {
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px rgb(0, 0, 0);
+  font-size: 30px;
+  white-space: nowrap;
+}
+
+.NavBar {
+  background-color: #ca0c0c;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: baseline;
+  max-width: 15in;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.NavBar .Logo {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.NavBar .NavItem {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 1em 1.5em;
+}
+
+.NavBar .NavItem:hover {
+  background-color: #a00101;
+}
+
