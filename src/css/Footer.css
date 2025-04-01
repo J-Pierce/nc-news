@@ -1,0 +1,13 @@
+footer {
+    background-color: #e20000;
+    color: white;
+    text-align: center;
+    border-style: solid;
+    border-color: rgb(173, 34, 34);
+    border-radius: 2px;
+    border-width: 5px;
+    margin-bottom: 10px;
+    height: 3rem;
+    position: sticky;
+    bottom: 0px;
+  }
