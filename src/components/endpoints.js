@@ -19,3 +19,8 @@ export function getCommentsByArticleId(id) {
     return data.comments;
   });
 }
+export function patchVotesByArticleId(id, inc_votes) {
+  return apiClient.patch(`/articles/${id}`, {inc_votes}).then(({ data }) => {
+    return data.comments;
+  });
+}

@@ -1,0 +1,12 @@
+.Votes {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.Votes button {
+}
+
+.Votes p {
+  padding: 10px;
+}
