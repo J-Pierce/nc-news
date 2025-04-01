@@ -1,7 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getCommentsByArticleId } from "../endpoints";
+import { getCommentsByArticleId } from "../../endpoints";
 import Loading from "../Loading";
+
+import { ArticleAddComment } from "./ArticleAddComment";
 
 export function ArticleComments() {
   const { article_id } = useParams();
@@ -46,24 +48,20 @@ export function ArticleComments() {
   return (
     <section className="comments">
       <h4>Comments</h4>
-      <p className="CommentCount">{comments.length} Comments:</p>
+      <ArticleAddComment commentCount={comments.length} />
       {comments.map((comment) => {
+        const date = String(new Date(comment.created_at));
+        const formattedDate = date.split("GMT")[0];
         return (
           <section className="comment">
-            <ul>
-              <li>
-                <p id="body">{comment.body}</p>
-              </li>
-              <li>
-                <p>Author: {comment.author}</p>
-              </li>
-              <li>
-                <p>created at: {comment.created_at}</p>
-              </li>
-              <li>
-                <p>{comment.votes} votes</p>
-              </li>
-            </ul>
+            <p id="body">{comment.body}</p>
+            <section className="stats">
+              <p>Author: {comment.author}</p>
+
+              <p>Posted: {formattedDate}</p>
+
+              <p>{comment.votes} votes</p>
+            </section>
           </section>
         );
       })}

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getArticleById } from "../endpoints";
+import { getArticleById } from "../../endpoints";
 import Loading from "../Loading";
 import { ArticleComments } from "./ArticleComments";
 import { ArticleVotes } from "./ArticleVotes";
@@ -45,6 +45,9 @@ export function ArticlePage() {
     );
   }
 
+  const date = String(new Date(article.created_at));
+  const formattedDate = date.split("GMT")[0];
+
   return (
     <section className="ArticlePage">
       <h3>{article.title}</h3>
@@ -56,13 +59,13 @@ export function ArticlePage() {
           <p>topic: {article.topic}</p>
         </li>
         <li>
-          <p>created_at: {article.created_at}</p>
+          <p>Posted: {formattedDate}</p>
         </li>
       </ul>
       <ArticleVotes id={article_id} votes={article.votes} />
       <section className="content">
         <img src={article.article_img_url} />
-        <p>{article.body}</p>
+        <p className="body">{article.body}</p>
       </section>
       <ArticleComments />
     </section>

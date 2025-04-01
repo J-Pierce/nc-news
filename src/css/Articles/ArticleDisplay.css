@@ -16,3 +16,15 @@
   width: 100%;
   max-width: 300px;
 }
+
+@media all and (min-width: 576px) {
+  .ArticleFilter {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media all and (min-width: 992px) {
+  .ArticleFilter {
+    grid-template-columns: auto auto auto;
+  }
+}
