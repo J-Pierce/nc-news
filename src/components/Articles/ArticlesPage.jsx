@@ -1,6 +1,6 @@
 import { ArticlesDisplay } from "./ArticlesDisplay";
 
-export function Articles() {
+export function ArticlesPage() {
   return (
     <section className="Articles">
       <h2>Articles</h2>

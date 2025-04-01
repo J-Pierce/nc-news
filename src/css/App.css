@@ -2,6 +2,7 @@
 @import "./Footer.css";
 @import "./Main.css";
 
-@import "./Articles/Articles.css";
+@import "./Articles/ArticlesPage.css";
 @import "./Articles/ArticleDisplay.css";
 @import "./Articles/ArticlePage.css";
+@import "./Articles/ArticleComments.css";

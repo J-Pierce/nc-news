@@ -43,15 +43,17 @@ export function ArticleComments() {
     );
   }
 
-  console.log(comments);
-
   return (
-    <>
+    <section className="comments">
+      <h4>Comments</h4>
+      <p className="CommentCount">{comments.length} Comments:</p>
       {comments.map((comment) => {
         return (
           <section className="comment">
             <ul>
-              <li>{comment.body}</li>
+              <li>
+                <p id="body">{comment.body}</p>
+              </li>
               <li>
                 <p>Author: {comment.author}</p>
               </li>
@@ -65,6 +67,6 @@ export function ArticleComments() {
           </section>
         );
       })}
-    </>
+    </section>
   );
 }
