@@ -8,3 +8,5 @@
 @import "./Articles/ArticleComments.css";
 @import "./Articles/ArticleVotes.css";
 @import "./Articles/ArticleAddComment.css";
+
+@import "./Topics/Topics.css";

@@ -1,0 +1,14 @@
+.Topics .Topic {
+  margin: 10px;
+  background-color: rgb(253, 253, 253);
+}
+
+.Topics .Topic h3 {
+  background-color: red;
+  color: white;
+  padding-left: 10px;
+}
+
+.Topics .Topic p {
+  padding-left: 10px;
+}
