@@ -28,20 +28,20 @@ export function ArticlePage() {
 
   if (isLoading) {
     return (
-      <div>
+      <section>
         <Loading />
-      </div>
+      </section>
     );
   }
 
   if (isError) {
     return (
-      <div>
+      <section>
         <p>
           Whoops, something went wrong! <br />
           Code: {error.code},<br /> Message: {error.message}
         </p>
-      </div>
+      </section>
     );
   }
 
@@ -64,7 +64,7 @@ export function ArticlePage() {
       </ul>
       <ArticleVotes id={article_id} votes={article.votes} />
       <section className="content">
-        <img src={article.article_img_url} />
+        <img src={article.article_img_url} alt={article.title} />
         <p className="body">{article.body}</p>
       </section>
       <ArticleComments />

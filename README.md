@@ -12,6 +12,8 @@ This project is a web application built to provide a frontend for a server and d
 
 The Server and Database are hosted online but may take some time to spin up after inactivity
 
+---
+
 ### Backend:
 
 More information on the backend can be found here:

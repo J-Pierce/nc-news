@@ -30,25 +30,26 @@ export function ArticlesDisplay() {
         setIsLoading(false);
       });
   }, [sort_by, order, topic, limit, p]);
-
+  
   if (isLoading) {
     return (
-      <div>
+      <section>
         <Loading />
-      </div>
+      </section>
     );
   }
 
   if (isError) {
     return (
-      <div>
+      <section>
         <p>
           Whoops, something went wrong! <br />
           Code: {error.code},<br /> Message: {error.message}
         </p>
-      </div>
+      </section>
     );
   }
+
 
   return (
     <div className="ArticleFilter">

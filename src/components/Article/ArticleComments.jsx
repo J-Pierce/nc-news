@@ -50,23 +50,23 @@ export function ArticleComments() {
       });
     });
   }
-
+  
   if (isLoading) {
     return (
-      <div>
+      <section>
         <Loading />
-      </div>
+      </section>
     );
   }
 
   if (isError) {
     return (
-      <div>
+      <section>
         <p>
           Whoops, something went wrong! <br />
           Code: {error.code},<br /> Message: {error.message}
         </p>
-      </div>
+      </section>
     );
   }
 
