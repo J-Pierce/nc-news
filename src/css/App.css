@@ -1,6 +1,7 @@
 @import "./Header.css";
 @import "./Footer.css";
 @import "./Main.css";
+@import "./NoResult.css";
 
 @import "./Articles/ArticlesPage.css";
 @import "./Articles/ArticlesDisplay.css";
