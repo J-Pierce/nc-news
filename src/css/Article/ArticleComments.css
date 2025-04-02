@@ -5,7 +5,7 @@
   border: solid rgb(0, 0, 0);
 }
 
-.ArticlePage .comments h4 {
+.ArticlePage .comments h3 {
   text-align: center;
 }
 .ArticlePage .comments .CommentCount {
@@ -46,4 +46,3 @@
     flex-direction: column;
   }
 }
-

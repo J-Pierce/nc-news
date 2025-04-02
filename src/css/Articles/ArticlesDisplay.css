@@ -12,11 +12,26 @@
   text-align: center;
   max-width: 455px;
 }
+.ArticleFilter .ArticleList h3 {
+  color: rgb(0, 0, 0);
+}
+
 .ArticleFilter .ArticleList img {
   width: 100%;
   max-width: 300px;
 }
+.ArticleFilter .ArticleInfo {
+  text-align: left;
+  padding-left: 10px;
+}
 
+.ArticleFilter .ArticleStats {
+  display: flex;
+  justify-content: space-between;
+  align-content: baseline;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 @media all and (min-width: 576px) {
   .ArticleFilter {
     grid-template-columns: auto auto;

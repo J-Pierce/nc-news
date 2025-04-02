@@ -3,10 +3,10 @@
 @import "./Main.css";
 
 @import "./Articles/ArticlesPage.css";
-@import "./Articles/ArticleDisplay.css";
-@import "./Articles/ArticlePage.css";
-@import "./Articles/ArticleComments.css";
-@import "./Articles/ArticleVotes.css";
-@import "./Articles/ArticleAddComment.css";
+@import "./Articles/ArticlesDisplay.css";
+@import "./Article/ArticlePage.css";
+@import "./Article/ArticleComments.css";
+@import "./Article/ArticleVotes.css";
+@import "./Article/ArticleAddComment.css";
 
 @import "./Topics/Topics.css";

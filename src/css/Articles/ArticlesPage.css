@@ -1,0 +1,53 @@
+.Articles .QueryBar {
+  border: solid black;
+  background-color: rgb(236, 236, 236);
+  margin: 10px;
+}
+.Articles .QueryBar h3 {
+  margin-left: 10px;
+}
+
+.Articles .Filters {
+  display: flex;
+  justify-content: flex-start;
+}
+.Articles .Filters select {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.Articles .Filters label {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.Articles .PgNav {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+}
+.Articles .PgNav input {
+  background-color: white;
+  color: black;
+  width: 35px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.Articles .PgNav label {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@media all and (max-width: 600px) {
+  .Articles .PgNav {
+    display: flex;
+    flex-direction: column;
+  }
+  .Articles .Filters {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -72,7 +72,7 @@ export function ArticleComments() {
 
   return (
     <section className="comments">
-      <h4>Comments</h4>
+      <h3>Comments</h3>
       <ArticleAddComment commentCount={comments.length} />
       {comments.map((comment) => {
         const date = String(new Date(comment.created_at));
