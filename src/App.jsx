@@ -5,7 +5,7 @@ import { UserProvider } from "./context/User";
 import { NavBar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
 import { ArticlesPage } from "./components/Articles/ArticlesPage";
-import { ArticlePage } from "./components/Articles/ArticlePage";
+import { ArticlePage } from "./components/Article/ArticlePage";
 import { Topics } from "./components/Topics/Topics";
 import { Account } from "./components/Account/Account";
 import { NoResult } from "./components/NoResult";
