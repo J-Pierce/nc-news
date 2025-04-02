@@ -53,13 +53,13 @@ export function ArticlePage() {
       <h2>{article.title}</h2>
       <ul className="DataList">
         <li>
+          <p>Posted: {formattedDate}</p>
+        </li>
+        <li>
           <p>Author: {article.author}</p>
         </li>
         <li>
           <p>topic: {article.topic}</p>
-        </li>
-        <li>
-          <p>Posted: {formattedDate}</p>
         </li>
       </ul>
       <ArticleVotes id={article_id} votes={article.votes} />

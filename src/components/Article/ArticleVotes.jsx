@@ -74,20 +74,26 @@ export function ArticleVotes({ id, votes }) {
   return (
     <section className="Votes">
       <p>Votes: </p>
-      <button onClick={upClicked}>
+      <button onClick={upClicked} value="1" >
         <FontAwesomeIcon
           className="UpVote"
           icon={faThumbsUp}
           size="lg"
           style={{ color: "#000000" }}
+          aria-hidden="false"
+          role="upvote"
+          alt="upvote button"
         />
       </button>
       <p>{vote}</p>
-      <button onClick={downClicked}>
+      <button onClick={downClicked} value="-1" >
         <FontAwesomeIcon
           icon={faThumbsDown}
           size="lg"
           style={{ color: "#000000" }}
+          aria-hidden="false"
+          role="downvote"
+          alt="downvote button"
         />
       </button>
     </section>

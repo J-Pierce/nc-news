@@ -50,7 +50,7 @@ export function ArticlesPage() {
         <h3>Filters:</h3>
         <form className="Filters">
           <label htmlFor="sort">Sort:</label>
-          <select name="sort" onChange={handleSort}>
+          <select id="sort" onChange={handleSort}>
             <option value="">No Filter</option>
             <option value="title">Title</option>
             <option value="topic">Topic</option>
@@ -61,13 +61,13 @@ export function ArticlesPage() {
             <option value="comment_count">Comments</option>
           </select>
           <label htmlFor="order">Order:</label>
-          <select name="order" onChange={handleOrder}>
+          <select id="order" onChange={handleOrder}>
             <option value="">No Filter</option>
             <option value="ASC">ASC</option>
             <option value="DESC">DESC</option>
           </select>
           <label htmlFor="topic">Topic:</label>
-          <select name="topic" onChange={handleTopic}>
+          <select id="topic" onChange={handleTopic}>
             <option value="">No Filter</option>
             {topics.map((topic) => {
               return (
@@ -81,7 +81,7 @@ export function ArticlesPage() {
         <form className="PgNav">
           <label htmlFor="limit">Articles Per Page:</label>
           <input
-            name="limit"
+            id="limit"
             type="number"
             value={limit}
             min="0"
@@ -90,7 +90,7 @@ export function ArticlesPage() {
           />
           <label htmlFor="p">Page:</label>
           <input
-            name="p"
+            id="p"
             type="number"
             value={p}
             min="0"

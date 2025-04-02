@@ -47,7 +47,7 @@ export function Topics() {
       <h2>Topics</h2>
       {topics.map((topic) => {
         return (
-          <section className="Topic">
+          <section className="Topic" key={topic.slug}>
             <Link to={`/?topic=${topic.slug}`}>
               <h3>{topic.slug}</h3>
             </Link>

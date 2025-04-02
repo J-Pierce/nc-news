@@ -52,7 +52,7 @@ export function ArticlesDisplay() {
 
 
   return (
-    <div className="ArticleFilter">
+    <section className="ArticleFilter">
       {articles.length === 0 ? (
         <p>No Results</p>
       ) : (
@@ -78,6 +78,6 @@ export function ArticlesDisplay() {
           );
         })
       )}
-    </div>
+    </section>
   );
 }

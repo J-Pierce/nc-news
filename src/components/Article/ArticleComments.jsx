@@ -50,7 +50,7 @@ export function ArticleComments() {
       });
     });
   }
-  
+
   if (isLoading) {
     return (
       <section>
@@ -79,7 +79,7 @@ export function ArticleComments() {
         const formattedDate = date.split("GMT")[0];
         if (comment.author === user.username) {
           return (
-            <section className="comment">
+            <section className="comment" key={comment.comment_id}>
               <p id="body">{comment.body}</p>
               <section className="stats">
                 <p>Author: {comment.author}</p>
@@ -95,7 +95,7 @@ export function ArticleComments() {
           );
         } else {
           return (
-            <section className="comment">
+            <section className="comment" key={comment.comment_id}>
               <p id="body">{comment.body}</p>
               <section className="stats">
                 <p>Author: {comment.author}</p>
