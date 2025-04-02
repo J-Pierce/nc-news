@@ -85,7 +85,6 @@ export function ArticlesPage() {
             type="number"
             value={limit}
             min="0"
-            // placeholder="Default 10"
             onChange={handleLimit}
           />
           <label htmlFor="p">Page:</label>
@@ -94,7 +93,6 @@ export function ArticlesPage() {
             type="number"
             value={p}
             min="0"
-            // placeholder="Default 0"
             onChange={handleP}
           />
         </form>

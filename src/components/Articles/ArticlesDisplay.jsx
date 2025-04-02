@@ -18,7 +18,7 @@ export function ArticlesDisplay() {
   const p = searchParams.get("p");
 
   useEffect(() => {
-    getArticles(sort_by, order, topic, limit, p)
+    getArticles({ sort_by, order, topic, limit, p })
       .then((articles) => {
         setArticles(articles);
       })
@@ -30,7 +30,7 @@ export function ArticlesDisplay() {
         setIsLoading(false);
       });
   }, [sort_by, order, topic, limit, p]);
-  
+
   if (isLoading) {
     return (
       <section>
@@ -49,7 +49,6 @@ export function ArticlesDisplay() {
       </section>
     );
   }
-
 
   return (
     <section className="ArticleFilter">

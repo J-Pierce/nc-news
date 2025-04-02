@@ -4,11 +4,12 @@ const apiClient = axios.create({
   baseURL: "https://nc-news-b93u.onrender.com/api",
 });
 
-export function getArticles(sort_by, order, topic, limit, p) {
+export function getArticles({ sort_by, order, topic, limit, p }) {
   sort_by === "" ? (sort_by = null) : sort_by;
   order === "" ? (order = null) : order;
   topic === "" ? (topic = null) : topic;
 
+  console.log(sort_by, order, topic, limit, p);
   return apiClient
     .get(`/articles`, {
       params: { sort_by, order, topic, limit, p },
@@ -49,6 +50,16 @@ export function deleteCommentById(id) {
 export function getTopics() {
   return apiClient.get(`/topics`).then(({ data }) => {
     return data.topics;
+  });
+}
+export function getUserByUsername(username) {
+  return apiClient.get(`/users/${username}`).then(({ data }) => {
+    return data.user;
+  });
+}
+export function getComments() {
+  return apiClient.get(`/comments`).then(({ data }) => {
+    return data.comments;
   });
 }
 export function getUsers() {

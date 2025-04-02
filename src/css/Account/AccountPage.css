@@ -1,0 +1,49 @@
+.AccountPage .Stats {
+  padding-left: 10px;
+}
+
+.AccountPage .ArticlesPosted {
+  display: grid;
+  grid-template-columns: auto;
+  padding: 10px;
+  gap: 10px;
+}
+
+.AccountPage .ArticlesPosted .ArticleList {
+  background-color: #f1f1f1;
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+  max-width: 455px;
+}
+.AccountPage .ArticlesPosted .ArticleList h3 {
+  color: rgb(0, 0, 0);
+}
+
+.AccountPage .ArticlesPosted .ArticleList img {
+  width: 100%;
+  max-width: 300px;
+}
+.AccountPage .ArticlesPosted .ArticleInfo {
+  text-align: left;
+  padding-left: 10px;
+}
+
+.AccountPage .ArticlesPosted .ArticleStats {
+  display: flex;
+  justify-content: space-between;
+  align-content: baseline;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+@media all and (min-width: 576px) {
+  .AccountPage .ArticlesPosted {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media all and (min-width: 992px) {
+  .AccountPage .ArticlesPosted {
+    grid-template-columns: auto auto auto;
+  }
+}
