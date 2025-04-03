@@ -2,8 +2,6 @@
 
 ### Hosted at: https://nc-news-jpierce.netlify.app/
 
-### Github: https://github.com/J-Pierce/nc-news
-
 ---
 
 ### Summary:
