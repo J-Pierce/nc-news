@@ -33,7 +33,7 @@ export function PostedArticles() {
   function handleDeleteButton(event) {
     event.preventDefault();
     const deleteConfirmed = confirm(
-      "Deleting an aticle is irreversible! \n\nAre you sure you want to do this?"
+      "Deleting an article is irreversible! \n\nAre you sure you want to do this?"
     );
     if (deleteConfirmed) {
       const id = event.target.value;
