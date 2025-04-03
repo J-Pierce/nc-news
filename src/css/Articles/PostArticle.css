@@ -1,0 +1,31 @@
+.Articles .AddArticle {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  color: white;
+  margin-bottom: 10px;
+  background-color: #ca0c0c;
+  text-align: center;
+  border-style: solid;
+  border-color: rgb(156, 61, 61);
+}
+
+.PostArticle div {
+  margin: 10px;
+}
+.PostArticle label {
+  margin: 10px;
+}
+
+.PostArticle .error {
+  margin: 10px;
+  border: solid red;
+  font-size: 16px;
+  color: white;
+  margin-bottom: 10px;
+  background-color: #ca0c0c;
+  text-align: center;
+  border-style: solid;
+  border-color: rgb(156, 61, 61);
+}

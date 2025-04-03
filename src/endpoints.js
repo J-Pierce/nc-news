@@ -8,8 +8,6 @@ export function getArticles({ sort_by, order, topic, limit, p }) {
   sort_by === "" ? (sort_by = null) : sort_by;
   order === "" ? (order = null) : order;
   topic === "" ? (topic = null) : topic;
-
-  console.log(sort_by, order, topic, limit, p);
   return apiClient
     .get(`/articles`, {
       params: { sort_by, order, topic, limit, p },
@@ -21,6 +19,20 @@ export function getArticles({ sort_by, order, topic, limit, p }) {
 export function getArticleById(id) {
   return apiClient.get(`/articles/${id}`).then(({ data }) => {
     return data.article;
+  });
+}
+export function postArticle({ author, title, body, topic, article_img_url }) {
+  return apiClient.post(`/articles`, {
+    author,
+    title,
+    body,
+    topic,
+    article_img_url,
+  });
+}
+export function deleteArticleById(id) {
+  return apiClient.delete(`/articles/${id}`).then(({ data }) => {
+    return data.articles;
   });
 }
 export function getCommentsByArticleId(id) {

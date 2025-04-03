@@ -37,47 +37,69 @@ export function ArticleAddComment({ commentCount }) {
       article_id,
       user.username,
       event.target[0].value
-    ).catch(() => {
-    });
+    ).catch(() => {});
   }
 
-  if (isPosted) {
-    const date = String(new Date(postComment.created_at));
-    const formattedDate = date.split("GMT")[0];
-    return (
-      <>
-        <section className="commentsBar">
-          <p className="CommentCount">{commentCount + 1} Comments:</p>
-        </section>
-        <section className="comment">
-          <p id="body">{postComment.body}</p>
-          <section className="stats">
-            <p>Author: {postComment.author}</p>
-            <p>Posted: {formattedDate}</p>
-            <p>{postComment.votes} votes</p>
+  if (user.username) {
+    if (isPosted) {
+      const date = String(new Date(postComment.created_at));
+      const formattedDate = date.split("GMT")[0];
+      return (
+        <>
+          <section className="commentsBar">
+            <p className="CommentCount">{commentCount + 1} Comments:</p>
           </section>
-        </section>
-      </>
-    );
-  } else if (isClicked) {
-    return (
-      <>
+          <section className="comment">
+            <p id="body">{postComment.body}</p>
+            <section className="stats">
+              <p>Author: {postComment.author}</p>
+              <p>Posted: {formattedDate}</p>
+              <p>{postComment.votes} votes</p>
+            </section>
+          </section>
+        </>
+      );
+    } else if (isClicked) {
+      return (
+        <>
+          <section className="commentsBar">
+            <p className="CommentCount">{commentCount} Comments:</p>
+          </section>
+          <form onSubmit={handlePostButton} className="AddComment">
+            <label htmlFor="body">Comment: </label>
+            <input type="text" id="body" required />
+            <button type="submit">Post Comment</button>
+          </form>
+        </>
+      );
+    } else {
+      return (
         <section className="commentsBar">
           <p className="CommentCount">{commentCount} Comments:</p>
+          <button onClick={handleAddComment}>Add Comment</button>
         </section>
-        <form onSubmit={handlePostButton} className="AddComment">
-          <label htmlFor="body">Comment: </label>
-          <input type="text" id="body" required />
-          <button type="submit">Post Comment</button>
-        </form>
-      </>
-    );
+      );
+    }
   } else {
-    return (
-      <section className="commentsBar">
-        <p className="CommentCount">{commentCount} Comments:</p>
-        <button onClick={handleAddComment}>Add Comment</button>
-      </section>
-    );
+    if (isClicked) {
+      return (
+        <section>
+          <section className="commentsBar">
+            <p className="CommentCount">{commentCount} Comments:</p>
+            <button>Add Comment</button>
+          </section>
+          <p className="AddCommentError">
+            Must be logged in to post a comment!
+          </p>
+        </section>
+      );
+    } else {
+      return (
+        <section className="commentsBar">
+          <p className="CommentCount">{commentCount} Comments:</p>
+          <button onClick={handleAddComment}>Add Comment</button>
+        </section>
+      );
+    }
   }
 }

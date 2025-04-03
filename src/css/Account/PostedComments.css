@@ -1,0 +1,60 @@
+.CommentsPosted #title {
+  padding-left: 10px;
+}
+
+.CommentsPosted .List .Comment {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-color: #d7d7d7;
+  border: solid rgb(0, 0, 0);
+  text-align: center;
+  padding-left: 10px;
+}
+
+.CommentsPosted .List .Comment .CommentInfo {
+  text-align: left;
+}
+
+.CommentsPosted .List .Comment .CommentStats {
+  display: flex;
+  justify-content: space-between;
+  align-content: baseline;
+  margin: 10px;
+}
+.CommentsPosted .List .Comment .CommentStats p {
+  background-color: rgb(223, 223, 223);
+  border: solid;
+  padding: 10px;
+}
+
+.CommentsPosted .buttons {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: baseline;
+  margin: 10px;
+}
+
+.CommentsPosted button h3 {
+  font-size: 16px;
+  color: white;
+}
+
+.CommentsPosted button {
+  font-size: 16px;
+  color: white;
+  margin-bottom: 10px;
+  background-color: #ca0c0c;
+  text-align: center;
+  border-style: solid;
+  border-color: rgb(156, 61, 61);
+}
+
+@media all and (max-width: 576px) {
+  .CommentsPosted .Comment .CommentStats {
+    flex-direction: column;
+  }
+  .CommentsPosted .buttons {
+    flex-direction: column;
+  }
+}

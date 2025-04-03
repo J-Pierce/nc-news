@@ -3,11 +3,14 @@ import { faThumbsUp } from "@fortawesome/free-regular-svg-icons";
 import { faThumbsDown } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
 import { patchVotesByArticleId } from "../../endpoints";
+import { UserContext } from "../../context/User";
+import { useContext } from "react";
 
 export function ArticleVotes({ id, votes }) {
   const [vote, setVote] = useState(votes);
   const [hasUpVoted, setHasUpVoted] = useState(false);
   const [hasDownVoted, setHasDownVoted] = useState(false);
+  const { user } = useContext(UserContext);
 
   function upClicked(event) {
     event.preventDefault();
@@ -70,32 +73,35 @@ export function ArticleVotes({ id, votes }) {
       }
     }
   }
-
-  return (
-    <section className="Votes">
-      <p>Votes: </p>
-      <button onClick={upClicked} value="1" >
-        <FontAwesomeIcon
-          className="UpVote"
-          icon={faThumbsUp}
-          size="lg"
-          style={{ color: "#000000" }}
-          aria-hidden="false"
-          role="upvote"
-          alt="upvote button"
-        />
-      </button>
-      <p>{vote}</p>
-      <button onClick={downClicked} value="-1" >
-        <FontAwesomeIcon
-          icon={faThumbsDown}
-          size="lg"
-          style={{ color: "#000000" }}
-          aria-hidden="false"
-          role="downvote"
-          alt="downvote button"
-        />
-      </button>
-    </section>
-  );
+  if (user.username) {
+    return (
+      <section className="Votes">
+        <p>Votes: </p>
+        <button onClick={upClicked} value="1">
+          <FontAwesomeIcon
+            className="UpVote"
+            icon={faThumbsUp}
+            size="lg"
+            style={{ color: "#000000" }}
+            aria-hidden="false"
+            role="upvote"
+            alt="upvote button"
+          />
+        </button>
+        <p>{vote}</p>
+        <button onClick={downClicked} value="-1">
+          <FontAwesomeIcon
+            icon={faThumbsDown}
+            size="lg"
+            style={{ color: "#000000" }}
+            aria-hidden="false"
+            role="downvote"
+            alt="downvote button"
+          />
+        </button>
+      </section>
+    );
+  } else {
+    return <p></p>;
+  }
 }
