@@ -6,7 +6,7 @@ export function PostArticleButton() {
   const { user } = useContext(UserContext);
 
   function handleAddArticle() {
-    navigate("/postArticle");
+    navigate("/post_article");
   }
 
   const navigate = useNavigate();

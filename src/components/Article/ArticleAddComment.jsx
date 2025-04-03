@@ -1,105 +1,57 @@
 import { useState } from "react";
 import { postCommentByArticleId } from "../../endpoints";
-import { UserContext } from "../../context/User";
-import { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { PostCommentError } from "./PostCommentError";
 
-export function ArticleAddComment({ commentCount }) {
-  const [isClicked, setIsClicked] = useState(false);
-  const [isPosted, setIsPosted] = useState(false);
-  const { user } = useContext(UserContext);
-  const { article_id } = useParams();
-  const [postComment, setPostComment] = useState({
-    comment_id: 0,
-    article_id: article_id,
-    body: "",
-    votes: 0,
-    author: user.username,
-    created_at: "",
-  });
+export function ArticleAddComment({ article_id, setComments, username }) {
+  const [isAddComment, setIsAddComment] = useState(false);
+  const [error, setError] = useState(null);
+  const [isError, setIsError] = useState(false);
+
+  function handleAddCommentButton(event) {
+    event.preventDefault();
+    setIsAddComment(true);
+    setIsError(false);
+  }
 
   function handleAddComment(event) {
     event.preventDefault();
-    setIsClicked(true);
-  }
-
-  function handlePostButton(event) {
-    event.preventDefault();
-    setIsPosted(true);
-    setPostComment((previousState) => {
-      return {
-        ...previousState,
-        body: event.target[0].value,
-        created_at: Date.now(),
-      };
+    const body = event.target[0].value;
+    const Comment = {
+      author: username,
+      body: body,
+      votes: 0,
+      created_at: new Date(),
+    };
+    setComments((previousState) => {
+      return [Comment, ...previousState];
     });
-    postCommentByArticleId(
-      article_id,
-      user.username,
-      event.target[0].value
-    ).catch(() => {});
+    postCommentByArticleId(article_id, username, body)
+      .then(() => {
+        setIsAddComment(false);
+      })
+      .catch((error) => {
+        setIsError(true);
+        setError(error);
+      });
   }
+  console.l;
 
-  if (user.username) {
-    if (isPosted) {
-      const date = String(new Date(postComment.created_at));
-      const formattedDate = date.split("GMT")[0];
-      return (
-        <>
-          <section className="commentsBar">
-            <p className="CommentCount">{commentCount + 1} Comments:</p>
-          </section>
-          <section className="comment">
-            <p id="body">{postComment.body}</p>
-            <section className="stats">
-              <p>Author: {postComment.author}</p>
-              <p>Posted: {formattedDate}</p>
-              <p>{postComment.votes} votes</p>
-            </section>
-          </section>
-        </>
-      );
-    } else if (isClicked) {
-      return (
-        <>
-          <section className="commentsBar">
-            <p className="CommentCount">{commentCount} Comments:</p>
-          </section>
-          <form onSubmit={handlePostButton} className="AddComment">
-            <label htmlFor="body">Comment: </label>
-            <input type="text" id="body" required />
-            <button type="submit">Post Comment</button>
-          </form>
-        </>
-      );
-    } else {
-      return (
-        <section className="commentsBar">
-          <p className="CommentCount">{commentCount} Comments:</p>
-          <button onClick={handleAddComment}>Add Comment</button>
-        </section>
-      );
-    }
+  if (isAddComment) {
+    return (
+      <section className="AddComment">
+        <form onSubmit={handleAddComment}>
+          <label htmlFor="body">Comment: </label>
+          <input id="body" type="text" />
+          <input type="submit" id="button" />
+        </form>
+        <PostCommentError error={error} isError={isError} />
+      </section>
+    );
   } else {
-    if (isClicked) {
-      return (
-        <section>
-          <section className="commentsBar">
-            <p className="CommentCount">{commentCount} Comments:</p>
-            <button>Add Comment</button>
-          </section>
-          <p className="AddCommentError">
-            Must be logged in to post a comment!
-          </p>
-        </section>
-      );
-    } else {
-      return (
-        <section className="commentsBar">
-          <p className="CommentCount">{commentCount} Comments:</p>
-          <button onClick={handleAddComment}>Add Comment</button>
-        </section>
-      );
-    }
+    return (
+      <button className="addCommentButton" onClick={handleAddCommentButton}>
+        Add Comment
+      </button>
+    );
   }
 }

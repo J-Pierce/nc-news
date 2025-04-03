@@ -73,44 +73,67 @@ export function ArticleComments() {
     );
   }
 
-  return (
-    <section className="comments">
-      <h3>Comments</h3>
-      <ArticleAddComment commentCount={comments.length} />
-      {comments.map((comment) => {
-        const date = String(new Date(comment.created_at));
-        const formattedDate = date.split("GMT")[0];
-        if (comment.author === user.username) {
-          return (
-            <section className="comment" key={comment.comment_id}>
-              <p id="body">{comment.body}</p>
-              <section className="stats">
-                <p>Author: {comment.author}</p>
+  function CommentDisplay() {
+    return comments.map((comment) => {
+      const date = String(new Date(comment.created_at));
+      const formattedDate = date.split("GMT")[0];
+      if (comment.author === user.username) {
+        return (
+          <section className="comment" key={comment.comment_id}>
+            <p id="body">{comment.body}</p>
+            <section className="stats">
+              <p>Author: {comment.author}</p>
 
-                <p>Posted: {formattedDate}</p>
+              <p>Posted: {formattedDate}</p>
 
-                <p>{comment.votes} votes</p>
-              </section>
-              <button onClick={handleDeleteButton} value={comment.comment_id}>
-                Delete Comment
-              </button>
+              <p>{comment.votes} votes</p>
             </section>
-          );
-        } else {
-          return (
-            <section className="comment" key={comment.comment_id}>
-              <p id="body">{comment.body}</p>
-              <section className="stats">
-                <p>Author: {comment.author}</p>
+            <button onClick={handleDeleteButton} value={comment.comment_id}>
+              Delete Comment
+            </button>
+          </section>
+        );
+      } else {
+        return (
+          <section className="comment" key={comment.comment_id}>
+            <p id="body">{comment.body}</p>
+            <section className="stats">
+              <p>Author: {comment.author}</p>
 
-                <p>Posted: {formattedDate}</p>
+              <p>Posted: {formattedDate}</p>
 
-                <p>{comment.votes} votes</p>
-              </section>
+              <p>{comment.votes} votes</p>
             </section>
-          );
-        }
-      })}
-    </section>
-  );
+          </section>
+        );
+      }
+    });
+  }
+
+  if (user.username) {
+    return (
+      <section className="comments">
+        <h3>Comments</h3>
+        <section >
+          <p className="CommentCount">{comments.length} Comments:</p>
+          <ArticleAddComment
+            article_id={article_id}
+            setComments={setComments}
+            username={user.username}
+          />
+        </section>
+        <CommentDisplay />
+      </section>
+    );
+  } else {
+    return (
+      <section className="comments">
+        <h3>Comments</h3>
+        <section className="commentsBar">
+          <p className="CommentCount">{comments.length} Comments:</p>
+        </section>
+        <CommentDisplay />
+      </section>
+    );
+  }
 }

@@ -11,6 +11,7 @@ import { Account } from "./components/Account/Account";
 import { NoResult } from "./components/NoResult";
 import { PostArticle } from "./components/Articles/PostArticle";
 
+
 function App() {
   return (
     <>
@@ -22,7 +23,7 @@ function App() {
           <Routes>
             <Route path="/" element={<ArticlesPage />} />
             <Route path="/:article_id" element={<ArticlePage />} />;
-            <Route path="/postArticle" element={<PostArticle />} />;
+            <Route path="/post_article" element={<PostArticle />} />;
             <Route path="/topics" element={<Topics />} />
             <Route path="/account" element={<Account />} />
             <Route path="/*" element={<NoResult />} />
