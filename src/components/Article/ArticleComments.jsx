@@ -18,7 +18,10 @@ export function ArticleComments() {
   useEffect(() => {
     getCommentsByArticleId(article_id)
       .then((comments) => {
-        setComments(comments);
+        const sortedComments = comments.sort((a, b) => {
+          return b.votes - a.votes;
+        });
+        setComments(sortedComments);
       })
       .catch((error) => {
         setError(error);

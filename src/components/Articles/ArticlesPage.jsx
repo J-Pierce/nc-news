@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { ArticlesDisplay } from "./ArticlesDisplay";
 import { getTopics } from "../../endpoints";
+import { PostArticleButton } from "./PostArticleButton";
 
 export function ArticlesPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -88,15 +89,10 @@ export function ArticlesPage() {
             onChange={handleLimit}
           />
           <label htmlFor="p">Page:</label>
-          <input
-            id="p"
-            type="number"
-            value={p}
-            min="0"
-            onChange={handleP}
-          />
+          <input id="p" type="number" value={p} min="0" onChange={handleP} />
         </form>
       </section>
+      <PostArticleButton />
       <ArticlesDisplay />
     </section>
   );

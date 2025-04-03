@@ -5,6 +5,8 @@
 
 @import "./Articles/ArticlesPage.css";
 @import "./Articles/ArticlesDisplay.css";
+@import "./Articles/PostArticle.css";
+
 @import "./Article/ArticlePage.css";
 @import "./Article/ArticleComments.css";
 @import "./Article/ArticleVotes.css";
@@ -12,4 +14,7 @@
 
 @import "./Topics/Topics.css";
 
+@import "./Account/Account.css";
 @import "./Account/AccountPage.css";
+@import "./Account/PostedArticles.css";
+@import "./Account/PostedComments.css";

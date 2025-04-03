@@ -69,17 +69,21 @@ export function Account() {
       <section className="Login">
         <h2>Login</h2>
         <form onSubmit={handleLogin}>
-          <label htmlFor="username">Username</label>
-          <select type="text" id="username" required>
-            {users.map((user) => {
-              return (
-                <option key={user.username} value={user.username}>
-                  {user.username}
-                </option>
-              );
-            })}
-          </select>
-          <button type="submit">Login</button>
+          <div>
+            <label htmlFor="username">Username</label>
+            <select type="text" id="username" required>
+              {users.map((user) => {
+                return (
+                  <option key={user.username} value={user.username}>
+                    {user.username}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+          <div>
+            <button type="submit">Login</button>
+          </div>
         </form>
         <LoginError isError={isError} />
       </section>
