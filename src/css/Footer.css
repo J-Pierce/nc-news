@@ -1,5 +1,5 @@
 footer {
-  background-color: #e20000;
+  background-color: #ca0c0c;
   color: white;
   text-align: center;
   border-style: solid;
@@ -7,11 +7,11 @@ footer {
   border-radius: 2px;
   border-width: 5px;
   margin-bottom: 10px;
-  height: 3rem;
   bottom: 0px;
 }
 
 footer .links {
+  background-color: #ca0c0c;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -24,14 +24,16 @@ footer .links {
 
 footer a {
   padding: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-
+  display: block;
+  height: 100%;
   color: white;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 @media all and (max-width: 600px) {
-  .links {
+  footer .links {
     flex-direction: column;
     display: flex;
     justify-content: space-between;
