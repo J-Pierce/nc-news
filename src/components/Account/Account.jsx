@@ -8,10 +8,18 @@ import { AccountPage } from "./AccountPage";
 
 export function Account() {
   const [users, setUsers] = useState([]);
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [error, setError] = useState(null);
+
+  let booleanLogin;
+  if (sessionStorage.getItem("user")) {
+    booleanLogin = true;
+  } else {
+    booleanLogin = false;
+  }
+  const [isLoggedIn, setIsLoggedIn] = useState(booleanLogin);
 
   useEffect(() => {
     getUsers()
@@ -32,6 +40,8 @@ export function Account() {
     getUserByUsername(event.target[0].value)
       .then((user) => {
         setUser(user);
+        setIsLoggedIn(true);
+        sessionStorage.setItem("user", JSON.stringify(user));
       })
       .catch((error) => {
         console.log(error);
@@ -62,8 +72,8 @@ export function Account() {
     );
   }
 
-  if (user.username) {
-    return <AccountPage />;
+  if (isLoggedIn) {
+    return <AccountPage setIsLoggedIn={setIsLoggedIn} setUser={setUser} />;
   } else {
     return (
       <section className="Login">

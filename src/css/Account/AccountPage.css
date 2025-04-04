@@ -4,3 +4,9 @@
 .AccountPage .Stats p {
   padding-left: 20px;
 }
+
+.AccountPage .Stats .LogoutButton {
+  padding: 10px;
+  margin-left: 10px;
+  background-color: #ca0c0c;
+}

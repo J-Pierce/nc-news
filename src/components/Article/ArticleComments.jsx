@@ -75,40 +75,77 @@ export function ArticleComments() {
   }
 
   function CommentDisplay() {
-    return comments.map((comment) => {
-      const date = String(new Date(comment.created_at));
-      const formattedDate = date.split("GMT")[0];
-      if (comment.author === user.username) {
-        return (
-          <section className="comment" key={comment.comment_id}>
-            <p id="body">{comment.body}</p>
-            <section className="stats">
-              <p className="P">Author: {comment.author}</p>
+    if (user.username) {
+      return comments.map((comment) => {
+        const date = String(new Date(comment.created_at));
+        const formattedDate = date.split("GMT")[0];
+        if (comment.author === user.username) {
+          return (
+            <section className="comment" key={comment.comment_id}>
+              <p id="body">{comment.body}</p>
+              <section className="stats">
+                <p className="P">Author: {comment.author}</p>
 
-              <p className="P">Posted: {formattedDate}</p>
+                <p className="P">Posted: {formattedDate}</p>
 
-              <CommentVotes id={comment.comment_id} votes={comment.votes} />
+                <CommentVotes id={comment.comment_id} votes={comment.votes} />
+              </section>
+              <button onClick={handleDeleteButton} value={comment.comment_id}>
+                Delete Comment
+              </button>
             </section>
-            <button onClick={handleDeleteButton} value={comment.comment_id}>
-              Delete Comment
-            </button>
-          </section>
-        );
-      } else {
-        return (
-          <section className="comment" key={comment.comment_id}>
-            <p id="body">{comment.body}</p>
-            <section className="stats">
-              <p className="P">Author: {comment.author}</p>
+          );
+        } else {
+          return (
+            <section className="comment" key={comment.comment_id}>
+              <p id="body">{comment.body}</p>
+              <section className="stats">
+                <p className="P">Author: {comment.author}</p>
 
-              <p className="P">Posted: {formattedDate}</p>
+                <p className="P">Posted: {formattedDate}</p>
 
-              <CommentVotes id={comment.comment_id} votes={comment.votes} />
+                <CommentVotes id={comment.comment_id} votes={comment.votes} />
+              </section>
             </section>
-          </section>
-        );
-      }
-    });
+          );
+        }
+      });
+    } else {
+      return comments.map((comment) => {
+        const date = String(new Date(comment.created_at));
+        const formattedDate = date.split("GMT")[0];
+        if (comment.author === user.username) {
+          return (
+            <section className="comment" key={comment.comment_id}>
+              <p id="body">{comment.body}</p>
+              <section className="stats">
+                <p className="P">Author: {comment.author}</p>
+
+                <p className="P">Posted: {formattedDate}</p>
+
+                <p className="P">{comment.votes} votes</p>
+              </section>
+              <button onClick={handleDeleteButton} value={comment.comment_id}>
+                Delete Comment
+              </button>
+            </section>
+          );
+        } else {
+          return (
+            <section className="comment" key={comment.comment_id}>
+              <p id="body">{comment.body}</p>
+              <section className="stats">
+                <p className="P">Author: {comment.author}</p>
+
+                <p className="P">Posted: {formattedDate}</p>
+
+                <p className="P">{comment.votes} votes</p>
+              </section>
+            </section>
+          );
+        }
+      });
+    }
   }
 
   if (user.username) {

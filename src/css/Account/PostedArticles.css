@@ -35,6 +35,16 @@
   padding-left: 10px;
   padding-right: 10px;
 }
+
+.AccountPage .ArticlesPosted .List .ArticleList button {
+  display: block;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  background-color: #ca0c0c;
+}
+
 @media all and (min-width: 576px) {
   .AccountPage .ArticlesPosted .List {
     grid-template-columns: auto auto;

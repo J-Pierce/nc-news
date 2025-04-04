@@ -3,8 +3,15 @@ import { useContext } from "react";
 import { PostedArticles } from "./PostedArticles";
 import { PostedComments } from "./PostedComments";
 
-export function AccountPage() {
+export function AccountPage({ setIsLoggedIn, setUser }) {
   const { user } = useContext(UserContext);
+
+  function handleLogOut(event) {
+    event.preventDefault;
+    sessionStorage.removeItem("user");
+    setIsLoggedIn(false);
+    setUser({});
+  }
 
   return (
     <section className="AccountPage">
@@ -13,6 +20,9 @@ export function AccountPage() {
         <h3>Account Details:</h3>
         <p>Username: {user.username}</p>
         <p>Name: {user.name}</p>
+        <button className="LogoutButton" onClick={handleLogOut}>
+          Log Out
+        </button>
       </section>
       <PostedArticles />
       <PostedComments />
