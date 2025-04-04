@@ -50,7 +50,6 @@ export function Topics() {
       <section className="Topics">
         <h2>Topics</h2>
         <AddTopic setTopics={setTopics} />
-        {console.log(topics)}
         {topics.map((topic) => {
           return (
             <section className="Topic" key={topic.slug}>

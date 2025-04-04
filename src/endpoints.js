@@ -71,6 +71,11 @@ export function deleteCommentById(id) {
     return data.comments;
   });
 }
+export function patchVotesByCommentId(id, inc_votes) {
+  return apiClient.patch(`/comments/${id}`, { inc_votes }).then(({ data }) => {
+    return data.comments;
+  });
+}
 
 // Topics
 

@@ -6,6 +6,7 @@ import { UserContext } from "../../context/User";
 import { useContext } from "react";
 
 import { ArticleAddComment } from "./ArticleAddComment";
+import { CommentVotes } from "./CommentVotes";
 
 export function ArticleComments() {
   const { article_id } = useParams();
@@ -82,11 +83,11 @@ export function ArticleComments() {
           <section className="comment" key={comment.comment_id}>
             <p id="body">{comment.body}</p>
             <section className="stats">
-              <p>Author: {comment.author}</p>
+              <p className="P">Author: {comment.author}</p>
 
-              <p>Posted: {formattedDate}</p>
+              <p className="P">Posted: {formattedDate}</p>
 
-              <p>{comment.votes} votes</p>
+              <CommentVotes id={comment.comment_id} votes={comment.votes} />
             </section>
             <button onClick={handleDeleteButton} value={comment.comment_id}>
               Delete Comment
@@ -98,11 +99,11 @@ export function ArticleComments() {
           <section className="comment" key={comment.comment_id}>
             <p id="body">{comment.body}</p>
             <section className="stats">
-              <p>Author: {comment.author}</p>
+              <p className="P">Author: {comment.author}</p>
 
-              <p>Posted: {formattedDate}</p>
+              <p className="P">Posted: {formattedDate}</p>
 
-              <p>{comment.votes} votes</p>
+              <CommentVotes id={comment.comment_id} votes={comment.votes} />
             </section>
           </section>
         );
@@ -114,7 +115,7 @@ export function ArticleComments() {
     return (
       <section className="comments">
         <h3>Comments</h3>
-        <section >
+        <section>
           <p className="CommentCount">{comments.length} Comments:</p>
           <ArticleAddComment
             article_id={article_id}

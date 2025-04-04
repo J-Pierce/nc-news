@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { patchVotesByArticleId } from "../../endpoints";
+import { patchVotesByCommentId } from "../../endpoints";
 import { UserContext } from "../../context/User";
 import { useContext } from "react";
 import { UpVoteImage, DownVoteImage } from "./VoteStyling";
 
-export function ArticleVotes({ id, votes }) {
+export function CommentVotes({ id, votes }) {
   const [vote, setVote] = useState(votes);
   const [hasUpVoted, setHasUpVoted] = useState(false);
   const [hasDownVoted, setHasDownVoted] = useState(false);
@@ -18,7 +18,7 @@ export function ArticleVotes({ id, votes }) {
       setVote((vote) => {
         return vote + 2;
       });
-      patchVotesByArticleId(id, 2).catch(() => {
+      patchVotesByCommentId(id, 2).catch(() => {
         setVote((vote) => {
           return vote - 2;
         });
@@ -31,7 +31,7 @@ export function ArticleVotes({ id, votes }) {
           return vote - 1;
         });
         setHasUpVoted(false);
-        patchVotesByArticleId(id, -1).catch(() => {
+        patchVotesByCommentId(id, -1).catch(() => {
           setVote((vote) => {
             return vote + 1;
           });
@@ -42,7 +42,7 @@ export function ArticleVotes({ id, votes }) {
           return vote + 1;
         });
         setHasUpVoted(true);
-        patchVotesByArticleId(id, 1).catch(() => {
+        patchVotesByCommentId(id, 1).catch(() => {
           setVote((vote) => {
             return vote - 1;
           });
@@ -60,7 +60,7 @@ export function ArticleVotes({ id, votes }) {
       setVote((vote) => {
         return vote - 2;
       });
-      patchVotesByArticleId(id, -2).catch(() => {
+      patchVotesByCommentId(id, -2).catch(() => {
         setVote((vote) => {
           return vote + 2;
         });
@@ -73,7 +73,7 @@ export function ArticleVotes({ id, votes }) {
           return vote + 1;
         });
         setHasDownVoted(false);
-        patchVotesByArticleId(id, 1).catch(() => {
+        patchVotesByCommentId(id, 1).catch(() => {
           setVote((vote) => {
             return vote - 1;
           });
@@ -84,7 +84,7 @@ export function ArticleVotes({ id, votes }) {
           return vote - 1;
         });
         setHasDownVoted(true);
-        patchVotesByArticleId(id, -1).catch(() => {
+        patchVotesByCommentId(id, -1).catch(() => {
           setVote((vote) => {
             return vote + 1;
           });
